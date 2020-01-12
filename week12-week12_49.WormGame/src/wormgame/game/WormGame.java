@@ -2,7 +2,9 @@ package wormgame.game;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.System.exit;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import wormgame.Direction;
 import wormgame.domain.Apple;
@@ -73,7 +75,8 @@ public class WormGame extends Timer implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         Random random = new Random();
         if (!continues) {
-            return;
+            JOptionPane.showMessageDialog(null, "Awwww, you lost! Rerun the game to try again.");
+            exit(0);;
         }
         worm.move();
         if (worm.runsInto(apple)) {
